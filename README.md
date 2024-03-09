@@ -16,6 +16,7 @@ As configurações básicas que devem ser preenchidas são:
 A conta de armazenamento, cofre de chaves e Application Insights podem ou não estar preenchidos automaticamente. Caso não esteja, clique em criar logo abaixo.
 
 Se tratando de uma configuração básica, pode-se clicar em examinar + criar. Caso tudo esteja preenchido corretamente e validado pela Azure, como na imagem abaixo, clique em criar.
+
 ![image](https://github.com/HugoCSouza/inicio-azure/assets/150296370/685d969c-edb3-4580-beb2-a9c5098a1743)
 
 Ao clicar em criar, o recurso irá começar a ser iniciado, pode demorar alguns minutos. Ao iniciar a tela abaixo será exibida, aguarde até ser iniciado.
@@ -98,6 +99,67 @@ Após todas as configurações feitas, essa aba de verificação final será apr
 Ao enviar, ele primeiro apresenta a primeira imagem informando que seu trabalho foi enviado mas ainda não inicializado. Após alguns minutos, o trabalho automaticamente se iniciará conforme a segunda imagem, mudando o seu status para *Em execução*. Até que o modelo finalize, pode demorar alguns minutos (em média, 15 minutos de execução, a partir da mudança de status).
 ![image](https://github.com/HugoCSouza/inicio-azure/assets/150296370/10d587cc-37e1-47b5-b07e-5a932d13c079)
 ![image](https://github.com/HugoCSouza/inicio-azure/assets/150296370/0afc023b-f469-4f15-bbfc-8988c635beda)
+
+Ao terminar o modelo, o status do treinamento mudará para concluido e as informações estarão diponíveis dentro do modelo. Na aba *"Melhor resumo de modelo"*, as informações do melhor modelo configurado, quais as métricas deste melhor modelo.
+![image](https://github.com/HugoCSouza/inicio-azure/assets/150296370/5c1170cb-9cbe-4f2c-81bd-1206e87b982d)
+
+## Implantação do modelo
+
+Na página do modelo, clique na opção *"Modelo de registro"*. Será aberto uma aba igual a imagem abaixo. Preencha com as informações de nome e descrição apenas e registre seu modelo.
+![image](https://github.com/HugoCSouza/inicio-azure/assets/150296370/5a2e98bf-f450-4049-8309-e5db0aef3de3)
+
+Agora na aba lateral, dentro da guia Ativos, clique em modelos, e clique no modelo que você acabou de registrar.
+![image](https://github.com/HugoCSouza/inicio-azure/assets/150296370/7f7f4d04-b559-4deb-99f2-d3009c5f3214)
+
+Clique no nome abaixo do item *"Criado por trabalho"*. Ao abrir a janela, você terá acesso as informações do modelo criado como métricas, logs de saida, logs de treinamento, entre outros. O nome na parte superior estará um nome diferente pois é o nome do melhor modelo dentro dos parametros que você passou para o azure. Estes nomes são criados pelo próprio Azure para diferenciar os modelos de IA entre si.
+![image](https://github.com/HugoCSouza/inicio-azure/assets/150296370/b9d87566-3e28-48c8-a345-02bbdec66ef2)
+
+## Teste do modelo
+Para testar a saída do modelo e verificar se ela se encontra fáctivel com os dados compartilhados, iremos realizar testes. No menu lateral do Azure, clique em *"Pontos de extremidade"* dentro da aba "Ativos". Clique em Criar, caso não esteja criado seu ponto de extremidade, e avançe até implantar o modelo. A implantação se iniciará conforme a imagem abaixo. Isso poderá levar alguns minutos. Após concluido, clique na aba testar.
+![image](https://github.com/HugoCSouza/inicio-azure/assets/150296370/786bb78e-02a9-481c-8b62-1ee985d37ada)
+
+Dentro dessa aba, será apresentada essa interface. No item *"Input"*, já é apresentado um arquivos JSON de como deve ser a estrutura do arquivos para testes. Foi usado os seguinte parâmetros para teste:
+![image](https://github.com/HugoCSouza/inicio-azure/assets/150296370/59845144-29ab-4539-8309-7526b8092e9d)
+```
+ {
+   "input_data": { 
+     "data": [
+       {
+         "day": 1,
+         "mnth": 1,   
+         "year": 2022,
+         "season": 2,
+         "holiday": 0,
+         "weekday": 1,
+         "workingday": 1,
+         "weathersit": 2, 
+         "temp": 0.3, 
+         "atemp": 0.3,
+         "hum": 0.3,
+         "windspeed": 0.3 
+       }
+     ]    
+   },   
+   "GlobalParameters": 1.0
+ }
+```
+Se tratando de um modelo de machine learning, cada modelo apresentará um valor. Nesta instância, o resultado do modelo foi:
+![image](https://github.com/HugoCSouza/inicio-azure/assets/150296370/16bfd565-b408-4dea-aeb1-781cf04209cc)
+
+### **Obs: É importante excluir os modelos caso sejam apenas para aprendizado pois cada recurso no Azure pode ser cobrado financeiramente a depende da sua assinatura.**
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
