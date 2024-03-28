@@ -148,6 +148,8 @@ Se tratando de um modelo de machine learning, cada modelo apresentará um valor.
 
 ### **Obs: É importante excluir os modelos caso sejam apenas para aprendizado pois cada recurso no Azure pode ser cobrado financeiramente a depende da sua assinatura.**
 
+#### Este repositório foi feito com objetivo de demonstrar a configuração básica de uma ferramenta de inteligencia dentro do Azure, além de servir como base de avaliação dentro do bootcamp " Microsoft Azure AI Fundamentals" ministrado pela DIO. Qualquer sugestão, pode solicitar um pull request ou entrar em contato comigo via [linkedin](https://www.linkedin.com/in/hugo-cs-souza/)
+
 
 
 
